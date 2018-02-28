@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<article class="post card" itemscope itemtype="http://schema.org/BlogPosting">
+ <div class="card-content">
+  <header class="post-header">
+  	<!-- 文章标题 -->
+    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+    
+    <p class="post-meta">
+    	<!-- 发布时间 -->
+    	<time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • 
+    	<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+    		<span itemprop="name">{{ page.author }}</span>
+    	</span>{% endif %}
+	</p>
+  </header>
+
+  <!-- 文章内容 -->
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+</div>
+</article>
